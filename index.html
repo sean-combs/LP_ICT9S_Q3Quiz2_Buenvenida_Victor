@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ticketing Center</title>
+	<style>
+		body {
+			text-align: center;
+			background-image: url(https://images.squarespace-cdn.com/content/v1/64e583f01a420620d9a200f1/2c578116-a084-444a-8b01-f9445371f4cc/principality.jpg);
+		}
+		h1 {
+			border: solid;
+			border-color: darkred;
+		}
+		.container {
+			padding: 20px;
+		}
+		form {
+			color: whitesmoke;
+		}
+		h1 {
+			color: whitesmoke;
+		}
+		h2 {
+			color: whitesmoke;
+		}
+	</style>
+</head>
+<body>
+	<h1>TICKETS</h1>
+	<h2><i>FILL OUT THE FORM TO GET TICKETS TO SEE THE KENDRICK LAMAR CONCERT 🔥🔥🔥🔥🔥</i></h2>
+
+	<div class="container">
+		<form id="ticket-form">
+			<h2>FILL OUT PERSONAL INFORMATION</h2>
+			<br>
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required><br><br>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required><br><br>
+
+			<h2>YOUR SEATS</h2>
+			<label>Choose your seat:</label>
+			<select id="seat" required>
+				<option value="none">Select</option>
+				<option value="2000">Gen Ad</option>
+				<option value="4000">Upper Box</option>
+				<option value="6000">Lower Box</option>
+				<option value="10000">Patron</option>
+				<option value="18000">VIP w/ Backstage Pass</option>
+				<option value="25000">Supreme VIP w/ Backstage Pass</option>
+			</select>
+			<br>
+
+			<label>Discount?</label>
+			<select id="discount">
+				<option value="0">None</option>
+				<option value="0.2">PWD/Student</option>
+				<option value="0.2">Disabilities</option>
+			</select>
+			<br><br>
+
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+
+	<script>
+		document.getElementById("ticket-form").addEventListener("submit", function(event) {
+			event.preventDefault(); 
+
+			var seatPrice = (document.getElementById("seat").value);
+			var discount = (document.getElementById("discount").value);
+
+			
+			if (seatPrice === "none" || isNaN(seatPrice)) {
+				alert("Please select a seat option.");
+				return;
+			}
+
+			
+			var finalPrice = seatPrice - (seatPrice * discount);
+			alert('Your final price after discount is: ₱' + finalPrice);
+		});
+	</script>
+
+	<label>YOUR TICKET IS HERE PRINT AND BE HUMBLE!!!!</label>
+	<img src="tick.jpeg"> 
+	<br>
+	<button>PRINT!!!</button>
+	<br>
+	<button onclick="window.location.reload();">BUY MORE TICKETS</button>
+</body>
+</html>
